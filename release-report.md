@@ -1,6 +1,6 @@
 # Release Report: Online Task Management
 
-**Status: APPROVED by the human ("yes now commit the changes and push the files to github and create the pr", given directly to the main session). Commit, push and PR performed by the main session on the human's instruction; see the PR for details. Remote: https://github.com/GirmajiSaisree/claude. Sections below describe the local preparation state before that step.**
+**Status: APPROVED by the human ("yes now commit the changes and push the files to github and create the pr", given directly to the main session). Commit, push and PR performed by the main session on the human's instruction; see the PR for details. Remote: https://github.com/Gisaisree/2L (PR: https://github.com/Gisaisree/2L/pull/1). Sections below describe the local preparation state before that step.**
 No commit, tag, branch, push, remote, Pull Request, Jira, Confluence or deployment action was performed or is authorised. The human instructed strictly local-only mode.
 
 ## 1. Release Summary

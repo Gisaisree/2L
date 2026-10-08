@@ -125,7 +125,7 @@ sequenceDiagram
     W-->>UI: page / safe message
 ```
 
-## 7. Technology Choices (all Proposed; require explicit human approval)
+## 7. Technology Choices (all approved; see sections 11-12, which supersede the "Proposed" labels below)
 
 | Area | Proposed choice | Justification | Alternatives | Status |
 |------|-----------------|---------------|--------------|--------|
@@ -155,7 +155,7 @@ sequenceDiagram
 
 Least privilege: application uses only the data store it needs. Security controls above are design intent, not implemented.
 
-## 9. Project Folder Structure (Proposed)
+## 9. Project Folder Structure (approved; sections 11-12 supersede this tree: no `docs/`, `scripts/run_dev.py` instead of `run_dev.sh`, plus `run.py`, `instance/`, `tests/conftest.py`)
 
 Based on the project-folder-structure skill, Python (Flask) layout. Real paths are authoritative once approved.
 
