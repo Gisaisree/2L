@@ -1,0 +1,30 @@
+:root { --fg:#1a1a1a; --bg:#fafafa; --accent:#0b5cad; --danger:#a12622; --muted:#555; --border:#c8c8c8; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--fg); background:var(--bg); line-height:1.5; }
+.skip-link { position:absolute; left:-999px; }
+.skip-link:focus { left:8px; top:8px; background:#fff; padding:8px; z-index:10; }
+.site-header { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; padding:0.75rem 1rem; background:#fff; border-bottom:1px solid var(--border); }
+.brand { font-weight:700; }
+nav a { margin-right:1rem; }
+main { max-width:48rem; margin:0 auto; padding:1rem; }
+a { color:var(--accent); }
+a:focus, button:focus, input:focus, textarea:focus { outline:3px solid #f5a623; outline-offset:2px; }
+.field { margin-bottom:1rem; }
+label { display:block; font-weight:600; margin-bottom:0.25rem; }
+input[type=text], input[type=email], input[type=password], input[type=search], textarea { width:100%; max-width:100%; padding:0.5rem; border:1px solid #666; border-radius:4px; font:inherit; }
+.search { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:end; margin-bottom:1rem; }
+.search label { width:100%; }
+.search input { flex:1 1 12rem; width:auto; }
+button { padding:0.5rem 0.9rem; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:4px; font:inherit; cursor:pointer; }
+button.danger { background:var(--danger); border-color:var(--danger); }
+.error { color:var(--danger); font-weight:600; }
+.flash { background:#e8f1fb; border:1px solid var(--accent); padding:0.5rem 1rem; border-radius:4px; margin-bottom:1rem; }
+.flash p { margin:0.25rem 0; }
+.task-list { list-style:none; padding:0; margin:0; }
+.task { display:flex; flex-wrap:wrap; justify-content:space-between; gap:0.5rem; background:#fff; border:1px solid var(--border); border-radius:6px; padding:0.75rem 1rem; margin-bottom:0.75rem; }
+.task h2 { margin:0; font-size:1.1rem; overflow-wrap:anywhere; }
+.task.done h2 { text-decoration:line-through; color:var(--muted); }
+.task .status, .task .description { margin:0.25rem 0 0; color:var(--muted); overflow-wrap:anywhere; white-space:pre-wrap; }
+.task-actions { display:flex; flex-wrap:wrap; gap:0.75rem; align-items:center; }
+.task-actions form { margin:0; }
+.empty { color:var(--muted); }

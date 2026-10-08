@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Delete task - Task Manager{% endblock %}
+{% block content %}
+<h1>Delete task</h1>
+<p>Permanently delete <strong>{{ task.title }}</strong>? This cannot be undone.</p>
+<form method="post" action="{{ url_for('tasks.delete', task_id=task.id) }}">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <button type="submit" class="danger">Yes, delete</button>
+  <a href="{{ url_for('tasks.list_view') }}">Cancel</a>
+</form>
+{% endblock %}

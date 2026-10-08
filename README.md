@@ -64,3 +64,21 @@ python -m pytest
 - Secrets come from the environment or the local `.env` only. The app refuses to start without `SECRET_KEY`.
 - HTTPS is not set up. It is required if the app is ever served beyond the local machine; then set `SESSION_COOKIE_SECURE=true`.
 - Logs never contain passwords, session tokens or CSRF tokens.
+
+## Project structure
+
+```text
+app/        application package (routes/, services/, templates/, static/, models.py, validation.py, errors.py)
+scripts/    provision_users.py, run_dev.py
+tests/      pytest suite (routes/, services/, scripts/ and module tests)
+run.py      entry point
+instance/   local SQLite database (git-ignored)
+```
+
+## Further documentation
+
+- `FRD.md` - functional requirements and validation status
+- `DESIGN.md` - architecture and design summary (full detail in `architecture.md`)
+- `requirements.md`, `design-review.md`, `impl-plan.md`, `validation-report.md`, `release-report.md`, `CHANGELOG.md`
+
+Known limitations: responsive/accessibility behaviour not verified in a browser; the interactive provisioning prompt was not verified live; Code Review was waived. See `validation-report.md`.

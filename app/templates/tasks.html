@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}My tasks - Task Manager{% endblock %}
+{% block content %}
+<h1>My tasks</h1>
+
+<form method="get" action="{{ url_for('tasks.list_view') }}" class="search" role="search">
+  <label for="q">Search by title</label>
+  <input id="q" name="q" type="search" value="{{ query }}">
+  <button type="submit">Search</button>
+  {% if query %}<a href="{{ url_for('tasks.list_view') }}">Clear</a>{% endif %}
+</form>
+
+{% if tasks %}
+<ul class="task-list">
+  {% for task in tasks %}
+  <li class="task {{ 'done' if task.completed else 'active' }}">
+    <div class="task-main">
+      <h2>{{ task.title }}</h2>
+      <p class="status">Status: {{ 'Completed' if task.completed else 'Active' }}</p>
+      {% if task.description %}<p class="description">{{ task.description }}</p>{% endif %}
+    </div>
+    <div class="task-actions">
+      <a href="{{ url_for('tasks.edit', task_id=task.id) }}">Edit</a>
+      {% if not task.completed %}
+      <form method="post" action="{{ url_for('tasks.complete', task_id=task.id) }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit">Mark completed</button>
+      </form>
+      {% endif %}
+      <a href="{{ url_for('tasks.delete', task_id=task.id) }}">Delete</a>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% elif query %}
+<p class="empty">No tasks match your search.</p>
+{% else %}
+<p class="empty">You have no tasks yet. <a href="{{ url_for('tasks.create') }}">Create your first task</a>.</p>
+{% endif %}
+{% endblock %}
