@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit task' if task else 'New task' }} - Task Manager{% endblock %}
+{% block content %}
+<h1>{{ 'Edit task' if task else 'New task' }}</h1>
+<form method="post" novalidate>
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <div class="field">
+    <label for="title">Title (required, up to 100 characters)</label>
+    <input id="title" name="title" type="text" value="{{ values.get('title', '') }}" required
+           {% if errors.title %}aria-invalid="true" aria-describedby="title-error"{% endif %}>
+    {% if errors.title %}<p id="title-error" class="error" role="alert">{{ errors.title }}</p>{% endif %}
+  </div>
+  <div class="field">
+    <label for="description">Description (optional, up to 1000 characters)</label>
+    <textarea id="description" name="description" rows="5"
+              {% if errors.description %}aria-invalid="true" aria-describedby="description-error"{% endif %}>{{ values.get('description', '') }}</textarea>
+    {% if errors.description %}<p id="description-error" class="error" role="alert">{{ errors.description }}</p>{% endif %}
+  </div>
+  <button type="submit">Save</button>
+  <a href="{{ url_for('tasks.list_view') }}">Cancel</a>
+</form>
+{% endblock %}

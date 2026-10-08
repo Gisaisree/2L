@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Task Manager{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <span class="brand">Task Manager</span>
+    {% if current_user.is_authenticated %}
+    <nav aria-label="Main">
+      <a href="{{ url_for('tasks.list_view') }}">My tasks</a>
+      <a href="{{ url_for('tasks.create') }}">New task</a>
+    </nav>
+    {% endif %}
+  </header>
+  <main id="main">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="flash" role="status">
+        {% for message in messages %}<p>{{ message }}</p>{% endfor %}
+      </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
